@@ -32,10 +32,10 @@
                 class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item ml-lg-5">
-            <a class="nav-link" data-toggle="modal" data-target="#logout-modal" href="#">Logout</a>
+            <a class="nav-link" data-toggle="modal" href="#">Logout</a>
           </li>
           <li class="nav-item ml-lg-5">
-            <a class="nav-link" data-toggle="modal" data-target="#guide-list-modal" href="#">Create Guide</a>
+            <a class="nav-link" data-toggle="modal" data-target="#guide-create-modal" href="#">Create Guide</a>
           </li>
           <li class="nav-item ml-lg-5">
             <a class="nav-link" data-toggle="modal" data-target="#login-modal" href="#">Login</a>
@@ -48,66 +48,107 @@
     </main>
   </nav>
 
+  <!-- Our Guides -->
+  <section class="container">
+
+    <div class="accordion mt-5" id="guide-list">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              Fill all the stars in Mario 64
+              Guide Title
+          </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#guide-list">
+          <div class="card-body">
+            Guide description goes here !!!
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+              data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              How to rescue peGuidem browse
+              Content Title
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#guide-list">
+          <div class="card-body">
+            Guide description goes here !!!
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h2 class="mb-0">
+            <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+              data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Guide Title
+            </button>
+          </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#guide-list">
+          <div class="card-body">
+            Guide description goes here !!!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERE WE WILL KEEP OUR MODELS -->
+
   <!-- Account Modal -->
   <div class="modal" id="account-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
+
         <div class="modal-header">
-          <h5 class="modal-title">Account Modal</h5>
+          <h5 class="modal-title">Account details </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
         <div class="modal-body">
-          <p>Modal body text goes here.</p>
+          <p class="account-details"></p>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+
       </div>
     </div>
   </div>
 
 
-  <!-- Login Modal -->
-  <div class="modal" id="guide-modal" tabindex="-1" role="dialog">
+  <!-- guide-create -->
+  <div class="modal" id="guide-create-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Guide Modal</h5>
+          <h5 class="modal-title">Create Guide</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>Modal body text goes here.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+          <form>
+            <div class="form-group">
+              <label for="guide-title">Guide title</label>
+              <input type="text" required class="form-control" id="guide-title" aria-describedby="emailHelp">
+            </div>
 
-  <!-- guide-list Modal -->
-  <div class="modal" id="guide-list-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Guide Modal</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+            <div class="form-group">
+              <label for="guide-content">Your password</label>
+              <textarea required class="form-control" id="guide-content"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+          </form>
         </div>
-        <div class="modal-body">
-          <p>Modal body text goes here.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+
       </div>
     </div>
   </div>
@@ -116,19 +157,30 @@
   <div class="modal" id="login-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
+
         <div class="modal-header">
-          <h5 class="modal-title">Login Modal</h5>
+          <h5 class="modal-title">login </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
         <div class="modal-body">
-          <p>Modal body text goes here.</p>
+          <form>
+            <div class="form-group">
+              <label for="login-email">Email address</label>
+              <input type="email" required class="form-control" id="login-email" aria-describedby="emailHelp">
+            </div>
+
+            <div class="form-group">
+              <label for="login-password">Your password</label>
+              <input type="password" required class="form-control" id="login-password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+
+
       </div>
     </div>
   </div>
@@ -139,24 +191,33 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Sign Up Modal</h5>
+          <h5 class="modal-title">Sign Up</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
         <div class="modal-body">
-          <p>Modal body text goes here.</p>
+          <form>
+            <div class="form-group">
+              <label for="signup-email">Email address</label>
+              <input type="email" required class="form-control" id="signup-email">
+            </div>
+
+            <div class="form-group">
+              <label for="signup-password">Choose password</label>
+              <input type="password" required class="form-control" id="signup-password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+
       </div>
     </div>
   </div>
 
 
-  <!-- Optional JavaScript -->
+
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
