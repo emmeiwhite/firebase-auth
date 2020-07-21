@@ -32,7 +32,7 @@
                 class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item ml-lg-5">
-            <a class="nav-link" data-toggle="modal" href="#">Logout</a>
+            <a class="nav-link signout" href="#">Logout</a>
           </li>
           <li class="nav-item ml-lg-5">
             <a class="nav-link" data-toggle="modal" data-target="#guide-create-modal" href="#">Create Guide</a>
@@ -50,54 +50,8 @@
 
   <!-- Our Guides -->
   <section class="container">
-
     <div class="accordion mt-5" id="guide-list">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h2 class="mb-0">
-            <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne"
-              aria-expanded="true" aria-controls="collapseOne">
-              Fill all the stars in Mario 64
-              Guide Title
-          </h2>
-        </div>
-
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#guide-list">
-          <div class="card-body">
-            Guide description goes here !!!
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h2 class="mb-0">
-            <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-              data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              How to rescue peGuidem browse
-              Content Title
-          </h2>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#guide-list">
-          <div class="card-body">
-            Guide description goes here !!!
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingThree">
-          <h2 class="mb-0">
-            <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-              data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Guide Title
-            </button>
-          </h2>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#guide-list">
-          <div class="card-body">
-            Guide description goes here !!!
-          </div>
-        </div>
-      </div>
+      <!-- We are getting  our Guides from the database-->
     </div>
   </section>
 
@@ -166,7 +120,7 @@
         </div>
 
         <div class="modal-body">
-          <form>
+          <form class="login-form">
             <div class="form-group">
               <label for="login-email">Email address</label>
               <input type="email" required class="form-control" id="login-email" aria-describedby="emailHelp">
@@ -198,7 +152,7 @@
         </div>
 
         <div class="modal-body">
-          <form>
+          <form class="signup-form">
             <div class="form-group">
               <label for="signup-email">Email address</label>
               <input type="email" required class="form-control" id="signup-email">
@@ -208,7 +162,7 @@
               <label for="signup-password">Choose password</label>
               <input type="password" required class="form-control" id="signup-password">
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary signup-button">Login</button>
           </form>
         </div>
 
@@ -217,6 +171,32 @@
   </div>
 
 
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
+
+
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCbeOYUrXPZUkS00XjMLagbN4qKqFNkU3M",
+      authDomain: "crown-mario.firebaseapp.com",
+      databaseURL: "https://crown-mario.firebaseio.com",
+      projectId: "crown-mario",
+      storageBucket: "crown-mario.appspot.com",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Settings up  auth and firestore
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+  </script>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -228,6 +208,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
+
+  <script src="./scripts/auth.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>
