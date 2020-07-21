@@ -1,15 +1,14 @@
-// Connecting with the Database and getting our Guides Dynamically
-db.collection('guides').get().then(snapshot => {
-  getGuides(snapshot.docs);
-});
-
-
 // TRACKING USER STATUS
 
 auth.onAuthStateChanged(user => {
   if (user) {
+    // Connecting with the Database and getting our Guides Dynamically | only when the user is logged in, we show the guides
+    db.collection('guides').get().then(snapshot => {
+      getGuides(snapshot.docs);
+    });
     console.log('User has signed in');
   } else {
+    getGuides([]); // If user status is logged out we show the message
     console.log('User signed out');
   }
 });

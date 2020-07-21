@@ -2,10 +2,13 @@
 const guideList = document.querySelector('#guide-list');
 
 const getGuides = (guides) => {
-  let counter = 1;
-  guides.forEach(guide => {
-    console.log(guide.data());
-    const html = `
+
+  if (guides.length >= 1) {
+    guideList.innerHTML = '';
+    let counter = 1;
+    guides.forEach(guide => {
+      console.log(guide.data());
+      const html = `
       <div class="card">
         <div class="card-header">
           <h2 class="mb-0">
@@ -23,7 +26,10 @@ const getGuides = (guides) => {
       </div>
   `;
 
-    guideList.innerHTML += html;
-    counter += 1;
-  });
-}
+      guideList.innerHTML += html;
+      counter += 1;
+    });
+  } else {
+    guideList.innerHTML = `<h5 class="text-center font-weight-light">Login to see the Guides</h5>`;
+  }
+};
