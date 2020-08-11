@@ -7,7 +7,6 @@ const getGuides = (guides) => {
     guideList.innerHTML = '';
     let counter = 1;
     guides.forEach(guide => {
-      console.log(guide.data());
       const html = `
       <div class="card">
         <div class="card-header">
@@ -33,3 +32,18 @@ const getGuides = (guides) => {
     guideList.innerHTML = `<h5 class="text-center font-weight-light">Login to see the Guides</h5>`;
   }
 };
+
+// 2) Show Menu Links based on user status
+
+const loggedInLinks = document.querySelectorAll('.logged-in');
+const loggedOutLinks = document.querySelectorAll('.logged-out');
+
+const showMenuUi = (user) => {
+  if (user) {
+    loggedInLinks.forEach(link => (link.style.display = 'block'));
+    loggedOutLinks.forEach(link => (link.style.display = 'none'));
+  } else {
+    loggedInLinks.forEach(link => (link.style.display = 'none'));
+    loggedOutLinks.forEach(link => (link.style.display = 'block'));
+  }
+}

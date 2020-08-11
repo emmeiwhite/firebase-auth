@@ -10,5 +10,12 @@
     flex: 0 0 auto;
 }
 .col-1{
-    flex: 1 1 auto;    //This should go back to flex: 0 0 auto after render
+    flex: 1 1 auto;    /*This should go back to flex: 0 0 auto after render*/
 } 
+
+
+/* --- Initially hiding the menu logged-in and logged-out with classes ---*/
+
+.logged-in,.logged-out{
+    display:none;
+}

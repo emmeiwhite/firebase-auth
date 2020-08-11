@@ -1,15 +1,15 @@
-// TRACKING USER STATUS
+/* --- 0) listen for auth status changes --- */
 
 auth.onAuthStateChanged(user => {
   if (user) {
-    // Connecting with the Database and getting our Guides Dynamically | only when the user is logged in, we show the guides
     db.collection('guides').get().then(snapshot => {
       getGuides(snapshot.docs);
-    });
-    console.log('User has signed in');
+      showMenuUi(user);
+    })
   } else {
     getGuides([]); // If user status is logged out we show the message
-    console.log('User signed out');
+    showMenuUi();
+    console.log('User logged out !!! ***');
   }
 });
 
@@ -22,10 +22,11 @@ signup.addEventListener('submit', (e) => {
   const email = signup['signup-email'].value;
   const password = signup['signup-password'].value;
 
-  // Now signing up with Firebase Auth
+  // Now signing up with Firebase Auth. We use the method provided by the firebase-auth
+  // auth.createUserWithEmailAndPassword(email,password), and it returns a promise
 
   auth.createUserWithEmailAndPassword(email, password)
-    .then(res => {
+    .then(cred => {
       $('#signup-modal').modal('hide');
       signup.reset();
     })
@@ -54,8 +55,8 @@ login.addEventListener('submit', (e) => {
   const password = login['login-password'].value;
 
   auth.signInWithEmailAndPassword(email, password)
-    .then(res => {
-      console.log('USER LOGGED IN', res);
+    .then(credential => {
+      console.log('USER LOGGED IN', credential);
       $('#login-modal').modal('hide');
       signup.reset();
     })
@@ -63,3 +64,5 @@ login.addEventListener('submit', (e) => {
       console.log('USER NOT Registered', err);
     });
 });
+
+/* --- 4)  --- */

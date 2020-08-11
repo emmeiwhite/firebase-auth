@@ -27,20 +27,20 @@
 
       <div class="collapse navbar-collapse" id="main-navigation">
         <ul class="navbar-nav main-menus">
-          <li class="nav-item ml-lg-5">
+          <li class="nav-item logged-in ml-lg-5">
             <a class="nav-link" data-toggle="modal" data-target="#account-modal" href="#">Account <span
                 class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item ml-lg-5">
+          <li class="nav-item logged-in ml-lg-5">
             <a class="nav-link signout" href="#">Logout</a>
           </li>
-          <li class="nav-item ml-lg-5">
+          <li class="nav-item logged-in ml-lg-5">
             <a class="nav-link" data-toggle="modal" data-target="#guide-create-modal" href="#">Create Guide</a>
           </li>
-          <li class="nav-item ml-lg-5">
+          <li class="nav-item logged-out ml-lg-5">
             <a class="nav-link" data-toggle="modal" data-target="#login-modal" href="#">Login</a>
           </li>
-          <li class="nav-item ml-lg-5">
+          <li class="nav-item logged-out ml-lg-5">
             <a class="nav-link" data-toggle="modal" data-target="#signup-modal" href="#">Sign Up</a>
           </li>
         </ul>
@@ -162,7 +162,7 @@
               <label for="signup-password">Choose password</label>
               <input type="password" required class="form-control" id="signup-password">
             </div>
-            <button type="submit" class="btn btn-primary signup-button">Login</button>
+            <button type="submit" class="btn btn-primary signup-button">Sign Up</button>
           </form>
         </div>
 
@@ -189,10 +189,10 @@
       projectId: "crown-mario",
       storageBucket: "crown-mario.appspot.com",
     };
-    // Initialize Firebase
+    // Initialize Firebase |  the connection established between firebase and front-end
     firebase.initializeApp(firebaseConfig);
 
-    // Settings up  auth and firestore
+    // Make auth and firestore references
     const auth = firebase.auth();
     const db = firebase.firestore();
 
